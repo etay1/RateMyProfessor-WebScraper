@@ -16,9 +16,9 @@ https://www.ratemyprofessors.com/ShowRatings.jsp?tid=307614
 ### Some Functions
 
 ```
-System.out.println(professor.getName() + "\n" +
-                   professor.getDepartment() + "\n" +
-                   professor.getRating());
+professor.getName();
+professor.getDepartment();
+professor.getRating();
 ```
 The function above will return and print basic information on the searched professor. In this case, we search for the RMP data on Professor Cyril Ku. The printed and the returned dictionary can be found below.
 
