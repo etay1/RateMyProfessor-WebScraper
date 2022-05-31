@@ -40,6 +40,7 @@ public class RateMyProfessor {
         //Formats name from div
         lastName = lastName.substring(57,lastName.length()-256);
         fullName = firstName + " " + lastName;
+        //can comment out next line to not print and just obtain data
         System.out.println(fullName);
         return fullName;
     }
@@ -61,6 +62,8 @@ public class RateMyProfessor {
         // "x / 5.0" => format into fraction but based on RMP ratings but this'll do for now
         sRating = sRating.substring(54,57);
         rating = Double.parseDouble(sRating);
+
+        //can comment out next line to not print and just obtain data
         System.out.println(rating);
         return rating;
     }
@@ -78,6 +81,8 @@ public class RateMyProfessor {
 
         //Formats department from div
         dept = dept.substring(3,dept.length()-23);
+
+        //can comment out next line to not print and just obtain data
         System.out.println(dept);
         return dept;
     }
