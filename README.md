@@ -31,7 +31,7 @@ Computer Science
 ```
 
 ```
-System.out.println(professor.getRating();  
+professor.getRating();  
 ```
 The above funtion will print out and return the requested value. The result is below.
 
