@@ -8,7 +8,7 @@ Professor objects need to be initialized with their corresponding Rate My Profes
 ```Java
 RateMyProfessor professor = new RateMyProfessor("2542462");
 ```
-This ID number can be easily obtained by visiting the Rate My Professor page for that professor. At this page, the URL contains the sID number for that University. 
+This ID number can be easily obtained by visiting the Rate My Professor page for that professor. At this page, the URL contains the ID number for that University. 
 
 ```url
 https://www.ratemyprofessors.com/ShowRatings.jsp?tid=307614
