@@ -20,7 +20,7 @@ professor.getName();
 professor.getDepartment();
 professor.getRating();
 ```
-The function above will return and print basic information on the searched professor. In this case, we search for the RMP data on Daneil Rogers from his RMP ID. The printed and the returned dictionary can be found below.
+The function above will return and print basic information on the searched professor. In this case, we search for the RMP data on Daniel Rogers a great professor from SUNY Brockport using his RMP ID. The printed and the returned dictionary can be found below.
 
 ```
 {
