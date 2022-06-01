@@ -26,7 +26,7 @@ The functions will return information on the searched professor. In this case, w
 ```
 professor.printDetails();  
 ```
-The above funtion will print out the following
+The above function will print out the following
 
 ```
 Daniel Rogers
