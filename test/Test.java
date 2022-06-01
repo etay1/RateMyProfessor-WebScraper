@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Main {
+public class Test {
     public static void main(String[] args) throws IOException {
             RateMyProfessor professor = new RateMyProfessor("307614");
             professor.getName();
@@ -10,7 +10,9 @@ public class Main {
 }
 
 /*Sample Output: 
-Daniel Rogers
-Computer Science
-4.3
+
+Professor Daniel Rogers
+Department: Computer Science
+Overall Rating: 4.3
+
 */
