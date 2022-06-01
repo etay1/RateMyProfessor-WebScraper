@@ -97,8 +97,8 @@ public class RateMyProfessor {
     }
 
     public void printDetails () {
-        System.out.print(getName() + "\n" +
-                         getDepartment() + "\n" +
-                         getRating());
+        System.out.print("Professor " + getName() + "\n" +
+                         "Department: " + getDepartment() + "\n" +
+                         "Overall Rating: " + getRating());
     }
 }
