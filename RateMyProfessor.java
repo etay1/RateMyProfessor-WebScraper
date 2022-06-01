@@ -6,18 +6,31 @@ import java.io.IOException;
 public class RateMyProfessor {
     private String sId;
     private Document doc;
-    private double rating;
+    private String name;
 
 
-    public RateMyProfessor(String sId) throws IOException {
+    public RateMyProfessor() throws IOException {
         //creates a document from the page of a professor based on RMP ID
-        doc = Jsoup.connect("https://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + sId).get();
+        // Defaults to Daniel Rogers @ SUNY Brockport if no parameters are given
+            sId = "307614";
+            doc = Jsoup.connect("https://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + sId).get();
+    }
+
+    //Single setter to determine url to extract
+    public void setId (String sId) throws IOException {
+        this.doc = Jsoup.connect("https://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + sId).get();
+        this.sId = sId;
+    }
+
+    //List of useable functions after initializing objects
+    public String getId () {
+        return this.sId;
     }
 
     public String getName() {
         String firstName = "";
         String lastName = "";
-        String fullName = "";
+
 
         //Grabs first name element from RMP doc
         for (Element element : doc.select(
@@ -39,33 +52,10 @@ public class RateMyProfessor {
         }
         //Formats name from div
         lastName = lastName.substring(57,lastName.length()-256);
-        fullName = firstName + " " + lastName;
-        //can comment out next line to not print and just obtain data
-        System.out.println(fullName);
-        return fullName;
-    }
 
-    public double getRating() {
-        String sRating = "";
-
-        //Grabs rating element
-        for (Element element : doc.select(
-                "#root > div > div > div.PageWrapper__StyledPageWrapper-sc-3p8f0h-0.gtQBUD " +
-                        "> div.TeacherRatingsPage__TeacherBlock-a57owa-1.erHhng " +
-                        "> div.TeacherInfo__StyledTeacher-ti1fio-1.kFNvIp " +
-                        "> div:nth-child(1) > div.RatingValue__AvgRating-qw8sqy-1.gIgExh >" +
-                        " div > div.RatingValue__Numerator-qw8sqy-2.liyUjw")) {
-            sRating += element;
-        }
-
-        //Formats rating element into double - might need to convert it to a
-        // "x / 5.0" => format into fraction but based on RMP ratings but this'll do for now
-        sRating = sRating.substring(54,57);
-        rating = Double.parseDouble(sRating);
-
-        //can comment out next line to not print and just obtain data
-        System.out.println(rating);
-        return rating;
+        //In the case of middle names, the middle name gets concatenated to first name
+        //i.e. First Middle Last
+        return firstName + " " + lastName;
     }
 
     public String getDepartment() {
@@ -82,8 +72,33 @@ public class RateMyProfessor {
         //Formats department from div
         dept = dept.substring(3,dept.length()-23);
 
-        //can comment out next line to not print and just obtain data
-        System.out.println(dept);
         return dept;
+    }
+
+    public double getRating() {
+        String sRating = "";
+        double rating;
+        //Grabs rating element
+        for (Element element : doc.select(
+                "#root > div > div > div.PageWrapper__StyledPageWrapper-sc-3p8f0h-0.gtQBUD " +
+                        "> div.TeacherRatingsPage__TeacherBlock-a57owa-1.erHhng " +
+                        "> div.TeacherInfo__StyledTeacher-ti1fio-1.kFNvIp " +
+                        "> div:nth-child(1) > div.RatingValue__AvgRating-qw8sqy-1.gIgExh >" +
+                        " div > div.RatingValue__Numerator-qw8sqy-2.liyUjw")) {
+            sRating += element;
+        }
+
+        //Formats rating element into double - might need to convert it to a
+        // "x / 5.0" => format into fraction but based on RMP ratings but this'll do for now
+        sRating = sRating.substring(54,57);
+        rating = Double.parseDouble(sRating);
+
+        return rating;
+    }
+
+    public void printDetails () {
+        System.out.print(getName() + "\n" +
+                         getDepartment() + "\n" +
+                         getRating());
     }
 }
