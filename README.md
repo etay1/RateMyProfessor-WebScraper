@@ -3,7 +3,7 @@ Java API for searching Rate My Professor data from all professors on RMP. This c
 
 ### Getting Started
 
-Professor objects need to be initialized with their corresponding Rate My Professor security identifier. 
+Professor objects need to be initialized with their corresponding Rate My Professor transaction identifier. 
 
 ```Java
 RateMyProfessor professor = new RateMyProfessor("307614");
@@ -21,7 +21,7 @@ professor.getDepartment();
 professor.getRating();
 professor.printDetails();
 ```
-The functions will return information on the searched professor. In this case, we search for the RMP data on Daniel Rogers a professor from SUNY Brockport using his RMP ID.
+The functions will return information on the searched professor. In this case, we search for the RMP data on Daniel Rogers a professor from SUNY Brockport using his RMP TID.
 
 ```
 professor.printDetails();  
