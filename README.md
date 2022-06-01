@@ -30,8 +30,9 @@ professor.printDetails();
 The above function will print out the following
 
 ```
-Daniel Rogers
-Computer Science
-4.3
+Professor Daniel Rogers
+Department: Computer Science
+Overall Rating: 4.3
+Level of Difficulty: 2.4
 ```
 This class can be easily edited to use in your project.
