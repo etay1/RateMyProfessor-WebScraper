@@ -1,13 +1,21 @@
+import org.jsoup.HttpStatusException;
 import java.io.IOException;
 
 public class Test {
     public static void main(String[] args) throws IOException {
-            RateMyProfessor professor = new RateMyProfessor("307614");
-            professor.getName();
-            professor.getDepartment();
-            professor.getRating();
+        try {
+            RateMyProfessor professor = new RateMyProfessor();
+            professor.setId("307614");
+            professor.printDetails();
+        }
+        
+        catch (HttpStatusException e) {
+            System.out.println("Invalid RMP ID");
+        }
+        
     }
 }
+
 
 /*Sample Output: 
 
