@@ -6,7 +6,8 @@ Java API for searching Rate My Professor data from all professors on RMP. This c
 Professor objects need to be initialized with their corresponding Rate My Professor transaction identifier. 
 
 ```Java
-RateMyProfessor professor = new RateMyProfessor("307614");
+RateMyProfessor professor = new RateMyProfessor();
+professor.setId("307614");
 ```
 This ID number can be easily obtained by visiting the Rate My Professor page for that professor. At this page, the URL contains the ID number for that University. 
 
