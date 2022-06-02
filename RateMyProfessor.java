@@ -58,6 +58,20 @@ public class RateMyProfessor {
         return firstName + " " + lastName;
     }
 
+    public String getUniversity() {
+        String uni = "";
+
+        for (Element element : doc.select(
+                "#root > div > div > div.PageWrapper__StyledPageWrapper-sc-3p8f0h-0.gtQBUD " +
+                        "> div.TeacherRatingsPage__TeacherBlock-a57owa-1.erHhng > " +
+                        "div.TeacherInfo__StyledTeacher-ti1fio-1.kFNvIp > div:nth-child(2) > " +
+                        "div.NameTitle__Title-dowf0z-1.iLYGwn > span > b")) {
+            uni += element;
+        }
+
+        return uni;
+    }
+
     public String getDepartment() {
         String dept = "";
 
@@ -96,9 +110,42 @@ public class RateMyProfessor {
         return rating;
     }
 
-    public void printDetails () {
-        System.out.print("Professor " + getName() + "\n" +
-                         "Department: " + getDepartment() + "\n" +
-                         "Overall Rating: " + getRating());
+    public double getLevelOfDifficulty () {
+        String sLevelOfDifficulty = "";
+        double levelOfDifficulty;
+        for (Element element : doc.select(
+                "#root > div > div > div.PageWrapper__StyledPageWrapper-sc-3p8f0h-0.gtQBUD >" +
+                        " div.TeacherRatingsPage__TeacherBlock-a57owa-1.erHhng >" +
+                        " div.TeacherInfo__StyledTeacher-ti1fio-1.kFNvIp >" +
+                        " div.TeacherFeedback__StyledTeacherFeedback-gzhlj7-0.cxVUGc > div:nth-child(2) >" +
+                        " div.FeedbackItem__FeedbackNumber-uof32n-1.kkESWs")) {
+            sLevelOfDifficulty += element;
+        }
+        sLevelOfDifficulty = sLevelOfDifficulty.substring(60, sLevelOfDifficulty.length()-7);
+
+        levelOfDifficulty = Double.parseDouble(sLevelOfDifficulty);
+
+        return levelOfDifficulty;
     }
+
+    public void printRecentComment() {
+        String comment = "";
+        for (Element element : doc.select(
+                "#ratingsList > li:nth-child(1) > div > div " +
+                        "> div.Rating__RatingInfo-sc-1rhvpxz-3.kEVEoU > " +
+                        "div.Comments__StyledComments-dzzyvm-0.gRjWel")) {
+            comment += element;
+        }
+        comment = comment.substring(60, comment.length()-7);
+        System.out.print(comment);
+
+    }
+
+    public void printDetails () {
+        System.out.println("Professor " + getName() + "\n" +
+                          "Department: " + getDepartment() + "\n" +
+                          "Overall Rating: " + getRating() + "\n" +
+                          "Level of Difficulty: " + getLevelOfDifficulty());
+    }
+
 }
