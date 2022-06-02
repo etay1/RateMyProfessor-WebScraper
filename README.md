@@ -25,7 +25,7 @@ professor.printDetails();
 The functions will return information on the searched professor. In this case, we search for the RMP data on Daniel Rogers a professor from SUNY Brockport using his RMP TID.
 
 ```
-professor.printDetails();  
+professor.printDetails();
 ```
 The above function will print out the following
 
