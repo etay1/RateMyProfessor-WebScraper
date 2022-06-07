@@ -1,14 +1,13 @@
 # RateMyProfessor AWS Lambda Function
-Java API for searching Rate My Professor data from all professors on RMP. This class can have numerous uses, and can be easily modified for use in your RMP applications.
-
 ### Getting Started
+The parameter for this function is the RMP ID on the each professor's RMP page.
 
-
-The required ID number can be easily obtained by visiting the professor's RMP page
+The required ID number can be easily obtained by visiting the associated page for that professor.
 
 ```url
 https://www.ratemyprofessors.com/ShowRatings.jsp?tid=307614
 ```
+
 ### Some Methods
 
 ```
@@ -20,7 +19,8 @@ professor.getLevelOfDifficulty();
 professor.getRecentComment();
 ```
 
-The lambda function will return the following json string the the following parameter User input: "307614"
+The lambda function will return the following json string after the following user input: "307614"
+
 ```
 {
   "Professor": "Daniel Rogers",
@@ -30,6 +30,5 @@ The lambda function will return the following json string the the following para
   "Overall Rating": 4.3,
   "Level of Difficulty": 2.4
 }
-
 ```
-This json string can be easily reformatted in other programming languages.
+This json string can be easily reformatted in other programming languages. 
