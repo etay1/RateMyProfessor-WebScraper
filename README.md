@@ -31,4 +31,4 @@ The lambda function will return the following json string after the following us
   "Level of Difficulty": 2.4
 }
 ```
-This json string can be easily reformatted in other programming languages. 
+This json pretty content can be easily reformatted in other programming languages. 
