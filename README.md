@@ -1,5 +1,5 @@
 # RateMyProfessor AWS Lambda Function
-### As of July 14th this is no longer valid. Updates to the site have altered the CSS queries. To fix the methods will need be readjusted for the strings to be targeted
+### As of July 14th this is no longer functional. Updates to the site have altered the CSS queries. To fix the methods will need be readjusted for the strings to be targeted
 
 ### Getting Started
 The parameter for this function is the RMP ID on the each professor's RMP page.
